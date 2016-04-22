@@ -1,0 +1,31 @@
+animals.outdated=A new version of Animals+ is out!
+animals.download=Download at: %s.
+
+tile.coral.blue.name=Blue Coral
+tile.coral.orange.name=Orange Coral
+tile.coral.purple.name=Purple Coral
+tile.coral.red.name=Red Coral
+tile.coral.yellow.name=Yellow Coral
+
+item.seaweed.name=Seaweed
+
+entity.Duck.name=Duck
+entity.Pinguin.name=Penguin
+
+entity.Centipede.name=Centipede
+entity.Cricket.name=Cricket
+entity.Butterfly.name=Butterfly
+entity.Moth.name=Moth
+entity.Snake.name=Snake
+entity.Chameleon.name=Chameleon
+entity.Lizard.name=Lizard
+entity.Mouse.name=Mouse
+entity.Bird.name=Bird
+
+entity.Fish.name=Fish
+entity.TropicalFish.name=Tropical Fish
+entity.Angler.name=Angler
+entity.MantaRay.name=Manta Ray
+entity.Whale.name=Whale
+entity.Piranha.name=Piranha
+entity.Shark.name=Shark

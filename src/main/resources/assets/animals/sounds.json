@@ -1,0 +1,147 @@
+{
+  "mob.penguin.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/penguin/hurt"
+    ]
+  },
+  "mob.penguin.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/penguin/say1",
+      "mob/penguin/say2"
+    ]
+  },
+  "mob.duck.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/duck/hurt"
+    ]
+  },
+  "mob.duck.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/duck/say"
+    ]
+  },
+  "mob.bird.cardinal.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/cardinal/hurt"
+    ]
+  },
+  "mob.bird.cardinal.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/cardinal/say1",
+      "mob/bird/cardinal/say2"
+    ]
+  },
+  "mob.bird.cardinal.death": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/cardinal/death"
+    ]
+  },
+  "mob.bird.chickadee.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/chickadee/hurt"
+    ]
+  },
+  "mob.bird.chickadee.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/chickadee/say1",
+      "mob/bird/chickadee/say2"
+    ]
+  },
+  "mob.bird.crow.death": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/crow/death"
+    ]
+  },
+  "mob.bird.crow.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/crow/hurt"
+    ]
+  },
+  "mob.bird.crow.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/crow/say"
+    ]
+  },
+  "mob.bird.jay.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/jay/hurt"
+    ]
+  },
+  "mob.bird.jay.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/jay/say1",
+      "mob/bird/jay/say2"
+    ]
+  },
+  "mob.bird.parrot.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/parrot/hurt"
+    ]
+  },
+  "mob.bird.parrot.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/parrot/say1",
+      "mob/bird/parrot/say2",
+      "mob/bird/parrot/say3"
+    ]
+  },
+  "mob.bird.sparrow.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/sparrow/hurt"
+    ]
+  },
+  "mob.bird.sparrow.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/sparrow/say"
+    ]
+  },
+  "mob.cricket.chirp": {
+    "category": "neutral",
+    "sounds": [
+      "mob/cricket/chirp"
+    ]
+  },
+  "mob.snake.hiss": {
+    "category": "hostile",
+    "sounds": [
+      "mob/snake/hiss"
+    ]
+  },
+  "mob.whale.death": {
+    "category": "neutral",
+    "sounds": [
+      "mob/whale/death"
+    ]
+  },
+  "mob.whale.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/whale/hurt"
+    ]
+  },
+  "mob.whale.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/whale/say1",
+      "mob/whale/say2"
+    ]
+  }
+}
