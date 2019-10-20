@@ -177,7 +177,7 @@ public class EntityAIAvoidScarecrow extends EntityAIBase{
 
         Random rand = new Random();
         WorldServer worldServer = (WorldServer) theEntity.worldObj;
-        worldServer.func_147487_a("smoke",
+        worldServer.func_147487_a("splash",
                 theEntity.posX + (rand.nextDouble() - 0.5D) * (double)theEntity.width,
                 theEntity.posY + rand.nextDouble() * (double)theEntity.height - 0.25D,
                 theEntity.posZ + (rand.nextDouble() - 0.5D) * (double)theEntity.width,
