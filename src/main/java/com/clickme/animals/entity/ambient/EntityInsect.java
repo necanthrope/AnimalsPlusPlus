@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.ambient;
 
+import com.clickme.animals.AnimalsPlus;
 import com.clickme.animals.entity.passive.EntitySmallMob;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -45,13 +46,16 @@ public abstract class EntityInsect extends EntitySmallMob implements IAnimals {
     }
 
     public boolean getCanSpawnHere() {
+    	if(!super.getCanSpawnHere()) {
+    	    return false;
+        }
+
         int y = MathHelper.floor_double(this.boundingBox.minY);
         int x = MathHelper.floor_double(this.posX);
         int z = MathHelper.floor_double(this.posZ);
         if (!this.worldObj.canBlockSeeTheSky(x, y, z)) {
             return false;
         }
-
         return this.worldObj.getWorldInfo().getTerrainType() == net.minecraft.world.WorldType.FLAT ? false : super.getCanSpawnHere();
     }
 }

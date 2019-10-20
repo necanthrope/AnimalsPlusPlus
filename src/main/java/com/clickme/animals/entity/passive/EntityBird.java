@@ -2,17 +2,17 @@ package com.clickme.animals.entity.passive;
 
 import java.util.Random;
 
+import com.clickme.animals.entity.ai.EntityAIAvoidScarecrow;
 import com.clickme.animals.entity.ai.EntityAIFlying;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
@@ -30,9 +30,12 @@ public class EntityBird extends EntityBirdBase {
     public float prevFlapSpeed;
     public float timeInAir = 1.0F;
 
+    public int maxSpawnedInChunk = 4;
+
     public EntityBird(World world) {
         super(world);
         setSize(0.4F, 0.6F);
+        this.tasks.addTask(1, new EntityAIAvoidScarecrow(this, Blocks.skull, 6, 1.5D, 1.0D, 7, 16));
         this.tasks.addTask(0, new EntityAIFlying(this));
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAvoidEntity(this, EntityPlayer.class, 8.0F, 1.0D, 1.4D));
@@ -58,6 +61,7 @@ public class EntityBird extends EntityBirdBase {
     }
 
     public void onLivingUpdate() {
+
         super.onLivingUpdate();
         this.prevWingRotation = this.wingRotation;
         this.prevFlapSpeed = this.flapSpeed;
@@ -241,5 +245,12 @@ public class EntityBird extends EntityBirdBase {
         setBirdType(getRNG().nextInt(5));
         return super.onSpawnWithEgg(ientitylivingdata);
     }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return maxSpawnedInChunk;
+    }
+
 }
 

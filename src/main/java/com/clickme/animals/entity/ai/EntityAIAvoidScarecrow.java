@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.ai;
 
+import com.clickme.animals.entity.passive.EntitySmallMob;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -10,7 +11,9 @@ import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
+import java.util.Random;
 import java.util.TreeMap;
 
 /**
@@ -18,7 +21,7 @@ import java.util.TreeMap;
  */
 public class EntityAIAvoidScarecrow extends EntityAIBase{
 
-    private EntityCreature theEntity;
+    private EntitySmallMob theEntity;
     private World theWorld;
 
     private Block scareCrowBlock;
@@ -35,7 +38,7 @@ public class EntityAIAvoidScarecrow extends EntityAIBase{
     private int farRange;
     private int nearRange;
 
-    public EntityAIAvoidScarecrow(EntityCreature entity, Block scareCrowBlock, int radarRange,
+    public EntityAIAvoidScarecrow(EntitySmallMob entity, Block scareCrowBlock, int radarRange,
                                   double nearSpeed, double farSpeed, int nearRange, int farRange) {
         theEntity = entity;
         theWorld = entity.worldObj;
@@ -55,6 +58,8 @@ public class EntityAIAvoidScarecrow extends EntityAIBase{
         scanForScarecrow();
 
         if(nearestScarecrow == null) {
+            if(theEntity.isPanicking)
+                theEntity.isPanicking = false;
             return false;
         }
 
@@ -64,11 +69,22 @@ public class EntityAIAvoidScarecrow extends EntityAIBase{
 
         if (vec3 == null)
         {
+            if(theEntity.isPanicking)
+                theEntity.isPanicking = false;
             return false;
         }
 
         this.entityPathEntity = this.entityPathNavigate.getPathToXYZ(vec3.xCoord, vec3.yCoord, vec3.zCoord);
-        return this.entityPathEntity == null ? false : this.entityPathEntity.isDestinationSame(vec3);
+        if(this.entityPathEntity == null ? false : this.entityPathEntity.isDestinationSame(vec3)) {
+
+			if(!theEntity.isPanicking)
+				theEntity.isPanicking = true;
+        	return true;
+		}
+
+		if(theEntity.isPanicking)
+			theEntity.isPanicking = false;
+		return false;
 
     }
 
@@ -158,5 +174,13 @@ public class EntityAIAvoidScarecrow extends EntityAIBase{
         {
             this.theEntity.getNavigator().setSpeed(this.farSpeed);
         }
+
+        Random rand = new Random();
+        WorldServer worldServer = (WorldServer) theEntity.worldObj;
+        worldServer.func_147487_a("smoke",
+                theEntity.posX + (rand.nextDouble() - 0.5D) * (double)theEntity.width,
+                theEntity.posY + rand.nextDouble() * (double)theEntity.height - 0.25D,
+                theEntity.posZ + (rand.nextDouble() - 0.5D) * (double)theEntity.width,
+                1, 0.0D, 0.0D, 0.0D, 0.0D);
     }
 }

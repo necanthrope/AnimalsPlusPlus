@@ -16,12 +16,19 @@ import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.ClickEvent;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.chunk.Chunk;
 
 @Mod(
         modid = AnimalsPlusConstants.MOD_ID,
@@ -88,6 +95,29 @@ public class AnimalsPlus {
                 }
             }
         }.start();
+    }
+
+    public static boolean isEntityOnNatureBlock(Entity entity) {
+
+		int y = MathHelper.floor_double(entity.boundingBox.minY);
+		int x = MathHelper.floor_double(entity.posX);
+		int z = MathHelper.floor_double(entity.posZ);
+		Block location = entity.worldObj.getBlock(x, y, z);
+
+        List<Class<?>> permittedBlocks = new ArrayList<Class<?>>();
+		permittedBlocks.add(Blocks.grass.getClass());
+		permittedBlocks.add(Blocks.tallgrass.getClass());
+		permittedBlocks.add(Blocks.leaves.getClass());
+		permittedBlocks.add(Blocks.leaves2.getClass());
+        permittedBlocks.add(Blocks.dirt.getClass());
+        permittedBlocks.add(Blocks.clay.getClass());
+        permittedBlocks.add(Blocks.sand.getClass());
+        permittedBlocks.add(Blocks.gravel.getClass());
+        permittedBlocks.add(Blocks.log.getClass());
+        permittedBlocks.add(Blocks.log2.getClass());
+        permittedBlocks.add(Blocks.snow_layer.getClass());
+
+		return (permittedBlocks.contains(location.getClass()));
     }
 
 }

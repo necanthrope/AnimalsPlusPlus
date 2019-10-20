@@ -5,6 +5,6 @@ package com.clickme.animals;
  */
 public class AnimalsPlusConstants {
     public final static String MOD_ID = "animalsplusplus";
-    public final static String MOD_VERSION = "1.2.1";
+    public final static String MOD_VERSION = "1.2.2";
 
 }

@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.passive;
 
+import com.clickme.animals.AnimalsPlus;
 import net.minecraft.world.World;
 
 public class EntityDuck extends net.minecraft.entity.passive.EntityChicken {
@@ -18,4 +19,12 @@ public class EntityDuck extends net.minecraft.entity.passive.EntityChicken {
     protected String getDeathSound() {
         return "animals:mob.duck.hurt";
     }
+
+    public boolean getCanSpawnHere() {
+        if (!super.getCanSpawnHere()) {
+            return false;
+        }
+        return AnimalsPlus.isEntityOnNatureBlock(this);
+    }
+
 }
