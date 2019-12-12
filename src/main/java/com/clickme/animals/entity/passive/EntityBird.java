@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.clickme.animals.entity.ai.EntityAIAvoidScarecrow;
 import com.clickme.animals.entity.ai.EntityAIFlying;
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.IEntityLivingData;
@@ -29,8 +30,6 @@ public class EntityBird extends EntityBirdBase {
     public float flapSpeed;
     public float prevFlapSpeed;
     public float timeInAir = 1.0F;
-
-    public int maxSpawnedInChunk = 4;
 
     public EntityBird(World world) {
         super(world);
@@ -249,7 +248,7 @@ public class EntityBird extends EntityBirdBase {
     @Override
     public int getMaxSpawnedInChunk()
     {
-        return maxSpawnedInChunk;
+        return AnimalsPlusPlusConfig.birdSpawnRate;
     }
 
 }

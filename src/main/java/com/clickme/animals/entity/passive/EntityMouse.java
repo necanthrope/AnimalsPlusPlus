@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.passive;
 
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -38,5 +39,11 @@ public class EntityMouse extends EntitySmallMob {
         super.applyEntityAttributes();
         getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(4.0D);
         getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.mouseSpawnRate;
     }
 }

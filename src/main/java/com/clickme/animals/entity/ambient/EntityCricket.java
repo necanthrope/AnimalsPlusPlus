@@ -1,6 +1,7 @@
 package com.clickme.animals.entity.ambient;
 
 import com.clickme.animals.entity.ai.EntityAIAvoidScarecrow;
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -82,6 +83,12 @@ public class EntityCricket extends EntityInsect {
         super.applyEntityAttributes();
         getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(6.0D);
         getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.cricketSpawnRate;
     }
 
 }

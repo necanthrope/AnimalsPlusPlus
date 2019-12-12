@@ -2,6 +2,7 @@ package com.clickme.animals.entity.passive;
 
 import java.util.Random;
 
+import com.clickme.animals.AnimalsPlus;
 import com.clickme.animals.entity.ambient.EntityInsect;
 import net.minecraft.util.ChunkCoordinates;
 
@@ -54,5 +55,13 @@ public abstract class EntityWingedBug extends EntityInsect {
     }
 
     protected void updateFallState(double d, boolean flag) {
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        if (!super.getCanSpawnHere()) {
+            return false;
+        }
+        return AnimalsPlus.isEntityOnNatureBlock(this);
     }
 }

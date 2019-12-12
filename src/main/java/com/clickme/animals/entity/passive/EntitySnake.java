@@ -2,6 +2,7 @@ package com.clickme.animals.entity.passive;
 
 import java.util.Random;
 
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -141,5 +142,11 @@ public class EntitySnake extends EntitySmallMob {
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
         setSnakeType(getRNG().nextInt(3));
         return data;
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.snakeSpawnRate;
     }
 }

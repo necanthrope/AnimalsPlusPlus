@@ -1,6 +1,7 @@
 package com.clickme.animals.entity.ambient;
 
 import com.clickme.animals.entity.passive.EntityWingedBug;
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -48,5 +49,11 @@ public class EntityMoth extends EntityWingedBug {
         int z = MathHelper.floor_double(this.posZ);
         int lightValue = this.worldObj.getBlockLightValue(x, y, z);
         return (lightValue < 8) && (super.getCanSpawnHere());
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.mothSpawnRate;
     }
 }

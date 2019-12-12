@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.passive;
 
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAITasks;
@@ -37,5 +38,11 @@ public class EntityLizard extends EntitySmallMob {
         super.applyEntityAttributes();
         getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
         getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.lizardSpawnRate;
     }
 }

@@ -1,6 +1,7 @@
 package com.clickme.animals.entity.ambient;
 
 import com.clickme.animals.entity.passive.EntityWingedBug;
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -60,5 +61,11 @@ public class EntityButterfly extends EntityWingedBug {
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData ientitylivingdata) {
         setButterflyType(getRNG().nextInt(2));
         return super.onSpawnWithEgg(ientitylivingdata);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.butterflySpawnRate;
     }
 }

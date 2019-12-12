@@ -56,7 +56,11 @@ public abstract class EntityInsect extends EntitySmallMob implements IAnimals {
         if (!this.worldObj.canBlockSeeTheSky(x, y, z)) {
             return false;
         }
+        if (!AnimalsPlus.isEntityOnNatureBlock(this)) {
+            return false;
+        }
         return this.worldObj.getWorldInfo().getTerrainType() == net.minecraft.world.WorldType.FLAT ? false : super.getCanSpawnHere();
     }
+
 }
 

@@ -1,6 +1,7 @@
 package com.clickme.animals.entity.passive;
 
 import com.clickme.animals.entity.ai.EntityAIPenguinGlide;
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -108,5 +109,11 @@ public class EntityPenguin extends EntitySmallMob {
         super.applyEntityAttributes();
         getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
         getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2D);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.penguinSpawnRate;
     }
 }

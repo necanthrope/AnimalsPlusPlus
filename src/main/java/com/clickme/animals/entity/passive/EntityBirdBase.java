@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.passive;
 
+import com.clickme.animals.AnimalsPlus;
 import net.minecraft.world.World;
 
 public class EntityBirdBase extends EntitySmallMob {
@@ -16,4 +17,13 @@ public class EntityBirdBase extends EntitySmallMob {
     public void setFlying(boolean flag) {
         this.flying = flag;
     }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        if (!super.getCanSpawnHere()) {
+            return false;
+        }
+        return AnimalsPlus.isEntityOnNatureBlock(this);
+    }
+
 }

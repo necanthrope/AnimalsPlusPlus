@@ -10,8 +10,6 @@ public abstract class EntitySmallMob extends EntityCreature implements IAnimals 
 
     public boolean isPanicking = false;
 
-    public int maxSpawnedInChunk = 2;
-
     public EntitySmallMob(World world) {
         super(world);
     }
@@ -24,14 +22,13 @@ public abstract class EntitySmallMob extends EntityCreature implements IAnimals 
         return false;
     }
 
+    @Override
     public boolean getCanSpawnHere() {
+        if (!super.getCanSpawnHere()) {
+            return false;
+        }
         return AnimalsPlus.isEntityOnNatureBlock(this);
     }
 
-    @Override
-    public int getMaxSpawnedInChunk()
-    {
-        return maxSpawnedInChunk;
-    }
 }
 

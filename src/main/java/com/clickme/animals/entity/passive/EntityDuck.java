@@ -1,6 +1,7 @@
 package com.clickme.animals.entity.passive;
 
 import com.clickme.animals.AnimalsPlus;
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.world.World;
 
 public class EntityDuck extends net.minecraft.entity.passive.EntityChicken {
@@ -20,11 +21,18 @@ public class EntityDuck extends net.minecraft.entity.passive.EntityChicken {
         return "animals:mob.duck.hurt";
     }
 
+    @Override
     public boolean getCanSpawnHere() {
         if (!super.getCanSpawnHere()) {
             return false;
         }
         return AnimalsPlus.isEntityOnNatureBlock(this);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.duckSpawnRate;
     }
 
 }

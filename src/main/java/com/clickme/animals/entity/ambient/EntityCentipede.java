@@ -1,5 +1,6 @@
 package com.clickme.animals.entity.ambient;
 
+import com.clickme.animals.event.AnimalsPlusPlusConfig;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.world.World;
@@ -36,5 +37,11 @@ public class EntityCentipede extends EntityInsect {
 
     protected void playStepSound(int i, int j, int k, int l) {
         playSound("mob.silverfish.step", 0.15F, 1.0F);
+    }
+
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return AnimalsPlusPlusConfig.centipedeSpawnRate;
     }
 }

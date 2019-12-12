@@ -112,10 +112,13 @@ public class AnimalsPlus {
         permittedBlocks.add(Blocks.dirt.getClass());
         permittedBlocks.add(Blocks.clay.getClass());
         permittedBlocks.add(Blocks.sand.getClass());
+        permittedBlocks.add(Blocks.sandstone.getClass());
         permittedBlocks.add(Blocks.gravel.getClass());
         permittedBlocks.add(Blocks.log.getClass());
         permittedBlocks.add(Blocks.log2.getClass());
         permittedBlocks.add(Blocks.snow_layer.getClass());
+        permittedBlocks.add(Blocks.ice.getClass());
+        permittedBlocks.add(Blocks.snow.getClass());
 
 		return (permittedBlocks.contains(location.getClass()));
     }
